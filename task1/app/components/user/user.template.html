@@ -1,0 +1,79 @@
+<div class="modal">
+    <div>
+        <table [ngStyle]="{cursor:'default'}">
+            <tr>
+                <th>Name</th>
+                <td> {{user.name}}</td>
+            </tr>
+            <tr>
+                <th>User name</th>
+                <td> {{user.userName}}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td> {{user.email}}</td>
+            </tr>
+            <tr (click)="showHideAddress()" [ngStyle]="{ cursor: 'pointer'}">
+                <th> Address</th>
+                <td [ngClass]="{'hide-address':!isHideAddress}"> {{user.address}}<br></td>
+                <td [ngClass]="{'hide-address':isHideAddress}">
+                    <table>
+                        <tr>
+                            <th>Street</th>
+                            <td>{{user.address.street}}</td>
+                        </tr>
+                        <tr>
+                            <th>Suite</th>
+                            <td>{{user.address.suite}}</td>
+                        </tr>
+                        <tr>
+                            <th>City</th>
+                            <td>{{user.address.city}}</td>
+                        </tr>
+                        <tr>
+                            <th>Zip code</th>
+                            <td>{{user.address.zipCode}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Show on the map</td>
+                        </tr>
+                    </table>
+                </td>
+
+            </tr>
+
+            <tr>
+                <th>Phone</th>
+                <td> {{user.phone}}</td>
+            </tr>
+            <tr>
+                <th>Website</th>
+                <td> {{user.website}}</td>
+            </tr>
+            <tr (click)="showHideCompany()" [ngStyle]="{ cursor: 'pointer'}">
+                <th>Company</th>
+                <td [ngClass]="{'hide-company':!isHideCompany}"> {{user.company}}<br></td>
+                <td [ngClass]="{'hide-company':isHideCompany}">
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <td>{{user.company.name}}</td>
+                        </tr>
+                        <tr>
+                            <th>Catch phrase</th>
+                            <td>{{user.company.catchPhrase}}</td>
+                        </tr>
+                        <tr>
+                            <th>Bs</th>
+                            <td>{{user.company.bs}}</td>
+                        </tr>
+                    </table>
+                </td>
+
+            </tr>
+
+        </table>
+        <button [ngClass]="{close:true}" (click)="onClickClose()">╳</button>
+    </div>
+</div>

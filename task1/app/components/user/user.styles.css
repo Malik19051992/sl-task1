@@ -1,0 +1,43 @@
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.modal > div {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    width: 400px;
+    margin: 10% auto;
+    padding: 15px 20px 15px 20px;
+    border-radius: 10px;
+    background: #fff;
+}
+
+.modal > div > button.close{
+    background-color: white;
+    padding: 0;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    height: 18px;
+    width: 18px;
+    outline: none;
+    color: #ff0000;
+    border-width: 0;
+
+}
+
+.hide-address{
+    display: none;
+}
+
+.hide-company{
+    display: none;
+}

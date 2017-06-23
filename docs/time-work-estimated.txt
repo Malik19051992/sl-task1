@@ -1,0 +1,10 @@
+
+
+Choose and configuration assembly systems - 4 
+Configuration of application - 2
+Creation of models - 1
+Creation of templates - 1
+Creation of components - 2
+Creation of services - 2
+Creation of styles - 4
+Creation of tests - 8(becouse didn't do it before)

@@ -1,0 +1,22 @@
+<div>
+    It is users
+</div>
+<table>
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            User name
+        </th>
+        <th>
+            Address
+        </th>
+    </tr>
+    <tr *ngFor="let user of users" (click)="onClickUser(user.id)" >
+        <td>{{user.name}}</td>
+        <td>{{user.userName}}</td>
+        <td>{{user.address}}</td>
+    </tr>
+</table>
+<router-outlet></router-outlet>
