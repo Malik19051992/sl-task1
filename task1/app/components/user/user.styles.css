@@ -12,12 +12,15 @@
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
-
     width: 400px;
     margin: 10% auto;
     padding: 15px 20px 15px 20px;
     border-radius: 10px;
     background: #fff;
+}
+
+.modal > div > table{
+    max-width: 370px;
 }
 
 .modal > div > button.close{
@@ -31,6 +34,7 @@
     outline: none;
     color: #ff0000;
     border-width: 0;
+    margin-left: 5px;
 
 }
 
@@ -40,4 +44,22 @@
 
 .hide-company{
     display: none;
+}
+
+.detail-info-table th{
+    background-color: inherit;
+    background-image: inherit;
+    box-shadow: none;
+    border-top: none;
+    text-shadow:none;
+}
+
+.detail-info-table{
+    border: none;
+}
+
+.detail-info-table  td, .detail-info-table  th {
+    border:0;
+    padding-bottom: 5px;
+    text-align: left;
 }

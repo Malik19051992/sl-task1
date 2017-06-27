@@ -1,6 +1,6 @@
 <div class="modal">
     <div>
-        <table [ngStyle]="{cursor:'default'}">
+        <table [ngStyle]="{cursor:'default'}" class="data-table">
             <tr>
                 <th>Name</th>
                 <td> {{user.name}}</td>
@@ -17,7 +17,7 @@
                 <th> Address</th>
                 <td [ngClass]="{'hide-address':!isHideAddress}"> {{user.address}}<br></td>
                 <td [ngClass]="{'hide-address':isHideAddress}">
-                    <table>
+                    <table class="detail-info-table">
                         <tr>
                             <th>Street</th>
                             <td>{{user.address.street}}</td>
@@ -55,7 +55,7 @@
                 <th>Company</th>
                 <td [ngClass]="{'hide-company':!isHideCompany}"> {{user.company}}<br></td>
                 <td [ngClass]="{'hide-company':isHideCompany}">
-                    <table>
+                    <table class="detail-info-table">
                         <tr>
                             <th>Name</th>
                             <td>{{user.company.name}}</td>
