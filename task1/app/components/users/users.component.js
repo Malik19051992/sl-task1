@@ -34,17 +34,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
             var _this = this;
             this.provideDataService.getUsers().subscribe(function (data) { return _this.users = data; });
         };
+        UsersComponent = __decorate([
+            core_1.Component({
+                selector: 'users',
+                templateUrl: './app/components/users/users.template.html',
+                styleUrls: ['./app/components/users/users.styles.css'],
+                providers: [provide_data_service_1.ProvideDataService]
+            }),
+            __metadata("design:paramtypes", [provide_data_service_1.ProvideDataService, router_1.Router])
+        ], UsersComponent);
         return UsersComponent;
     }());
-    UsersComponent = __decorate([
-        core_1.Component({
-            selector: 'users',
-            templateUrl: './app/components/users/users.template.html',
-            styleUrls: ['./app/components/users/users.styles.css'],
-            providers: [provide_data_service_1.ProvideDataService]
-        }),
-        __metadata("design:paramtypes", [provide_data_service_1.ProvideDataService, router_1.Router])
-    ], UsersComponent);
     exports.UsersComponent = UsersComponent;
 });
 //# sourceMappingURL=users.component.js.map

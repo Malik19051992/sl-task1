@@ -26,15 +26,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     var AppModule = (function () {
         function AppModule() {
         }
+        AppModule = __decorate([
+            core_1.NgModule({
+                imports: [platform_browser_1.BrowserModule, app_route_module_1.AppRoutingModule, http_1.HttpModule],
+                declarations: [app_component_1.AppComponent, users_component_1.UsersComponent, home_component_1.HomeComponent, user_component_1.UserComponent],
+                bootstrap: [app_component_1.AppComponent]
+            })
+        ], AppModule);
         return AppModule;
     }());
-    AppModule = __decorate([
-        core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, app_route_module_1.AppRoutingModule, http_1.HttpModule],
-            declarations: [app_component_1.AppComponent, users_component_1.UsersComponent, home_component_1.HomeComponent, user_component_1.UserComponent],
-            bootstrap: [app_component_1.AppComponent]
-        })
-    ], AppModule);
     exports.AppModule = AppModule;
 });
 //# sourceMappingURL=app.module.js.map

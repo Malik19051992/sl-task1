@@ -58,12 +58,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
                 console.log('Server not found!!!');
             }
         };
+        ProvideDataService = __decorate([
+            core_1.Injectable(),
+            __metadata("design:paramtypes", [http_1.Http])
+        ], ProvideDataService);
         return ProvideDataService;
     }());
-    ProvideDataService = __decorate([
-        core_1.Injectable(),
-        __metadata("design:paramtypes", [http_1.Http])
-    ], ProvideDataService);
     exports.ProvideDataService = ProvideDataService;
 });
 //# sourceMappingURL=provide-data.service.js.map

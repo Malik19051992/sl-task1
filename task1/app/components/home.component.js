@@ -19,14 +19,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     var HomeComponent = (function () {
         function HomeComponent() {
         }
+        HomeComponent = __decorate([
+            core_1.Component({
+                selector: 'home',
+                template: "\n        <div class=\"page-data\">\n            It is home\n        </div>"
+            })
+        ], HomeComponent);
         return HomeComponent;
     }());
-    HomeComponent = __decorate([
-        core_1.Component({
-            selector: 'home',
-            template: "\n        <div class=\"page-data\">\n            It is home\n        </div>"
-        })
-    ], HomeComponent);
     exports.HomeComponent = HomeComponent;
 });
 //# sourceMappingURL=home.component.js.map

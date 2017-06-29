@@ -1,11 +1,15 @@
 
-name|pane time|real time
-Choose and configuration assembly systems | 4 |
-Configuration of application |2|1
-Creation of models |1|1
-Creation of modules |2|2
-Creation of templates |2|1
-Creation of components |2|2
-Creation of services |2|1
-Creation of styles |4|2
-Creation of tests |8(becouse didn't do it before)|
+Task name               |pane time  |real time
+Choose and configuration
+assembly systems        | 4         |8
+Configuration of
+application             |2          |1
+Creation of models      |1          |1
+Creation of modules     |2          |1
+Creation of templates   |2          |1
+Creation of components  |2          |1
+Creation of services    |2          |1
+Creation of styles      |4          |2
+Creation of tests       |8(becouse  |8
+                        didn't do it
+                         before)

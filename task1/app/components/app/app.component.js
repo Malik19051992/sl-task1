@@ -19,15 +19,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     var AppComponent = (function () {
         function AppComponent() {
         }
+        AppComponent = __decorate([
+            core_1.Component({
+                selector: 'app',
+                styleUrls: ['./app/components/app/app.styles.css'],
+                template: "\n        <div>\n             <nav>\n                <a routerLink=\"/\" routerLinkActive=\"active\">Home</a> \n                <a routerLink=\"/users\" routerLinkActive=\"active\">Users</a>\n            </nav>\n            <router-outlet></router-outlet>\n        </div>"
+            })
+        ], AppComponent);
         return AppComponent;
     }());
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'app',
-            styleUrls: ['./app/components/app/app.styles.css'],
-            template: "\n        <div>\n             <nav>\n                <a routerLink=\"/\" routerLinkActive=\"active\">Home</a> \n                <a routerLink=\"/users\" routerLinkActive=\"active\">Users</a>\n            </nav>\n            <router-outlet></router-outlet>\n        </div>"
-        })
-    ], AppComponent);
     exports.AppComponent = AppComponent;
 });
 //# sourceMappingURL=app.component.js.map

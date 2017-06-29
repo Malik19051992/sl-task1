@@ -49,17 +49,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
         UserComponent.prototype.ngOnDestroy = function () {
             this.sub.unsubscribe();
         };
+        UserComponent = __decorate([
+            core_1.Component({
+                selector: 'user',
+                templateUrl: './app/components/user/user.template.html',
+                styleUrls: ['./app/components/user/user.styles.css'],
+                providers: [provide_data_service_1.ProvideDataService]
+            }),
+            __metadata("design:paramtypes", [provide_data_service_1.ProvideDataService, router_1.ActivatedRoute, router_1.Router])
+        ], UserComponent);
         return UserComponent;
     }());
-    UserComponent = __decorate([
-        core_1.Component({
-            selector: 'user',
-            templateUrl: './app/components/user/user.template.html',
-            styleUrls: ['./app/components/user/user.styles.css'],
-            providers: [provide_data_service_1.ProvideDataService]
-        }),
-        __metadata("design:paramtypes", [provide_data_service_1.ProvideDataService, router_1.ActivatedRoute, router_1.Router])
-    ], UserComponent);
     exports.UserComponent = UserComponent;
 });
 //# sourceMappingURL=user.component.js.map
