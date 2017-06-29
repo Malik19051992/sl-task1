@@ -1,19 +1,71 @@
-'use strict'
+"use strict";
 
-const gulp = require('gulp')
+const gulp = require("gulp");
+const del = require("del");
+const tsc = require("gulp-typescript");
+const sourcemaps = require('gulp-sourcemaps');
+const tsProject = tsc.createProject("tsconfig.json");
 
-gulp.task('default',function () {
-    return gulp.src('./**/*.*')//[....*{js,css},'!node_modules/**'],{read:false}
-        //.pipe(gulp.dest('dest'));
-        .pipe(gulp.dest(function (file) {
-            return file.extname=='.js'?'js':
-                file.extname=='.css'?'css':'dest'
+/**
+ * Remove build directory.
+ */
+gulp.task('clean', (cb) => {
+    return del(["dest"], cb);
+});
 
-        }));
+/**
+ * Compile TypeScript sources and create sourcemaps in build directory.
+ */
+gulp.task("compile", () => {
+    let tsResult = gulp.src(["app/**/*.ts","!**/*.spec.ts"])
+        .pipe(sourcemaps.init())
+        .pipe(tsc(tsProject));
+    return tsResult.js
+        .pipe(sourcemaps.write(".", {sourceRoot: '/app'}))
+        .pipe(gulp.dest("dest"));
+});
 
-})
+/**
+ * Copy all resources that are not TypeScript files into build directory.
+ */
+gulp.task("resources", () => {
+    return gulp.src(["**/*.css", "**/*.html"])
+        .pipe(gulp.dest("dest"));
+});
 
-gulp.task('style',function () {
-    return gulp.src('resources/**/*.css')
+/**
+ * Copy all required libraries into build directory.
+ */
+gulp.task("libs", () => {
+    return gulp.src([
+        'core-js/client/shim.min.js',
+        'systemjs/dist/system-polyfills.js',
+        'systemjs/dist/system.src.js',
+        'reflect-metadata/Reflect.js',
+        'rxjs/**',
+        'zone.js/dist/**',
+        '@angular/**'
+    ], {cwd: "node_modules/**"}) /* Glob required here. */
+        .pipe(gulp.dest("dest/lib"));
+});
 
-})
+/**
+ * Watch for changes in TypeScript, HTML and CSS files.
+ */
+gulp.task('watch', function () {
+    gulp.watch(["src/**/*.ts"], ['compile']).on('change', function (e) {
+        console.log('TypeScript file ' + e.path + ' has been changed. Compiling.');
+    });
+    gulp.watch(["src/**/*.html", "src/**/*.css"], ['resources']).on('change', function (e) {
+        console.log('Resource file ' + e.path + ' has been changed. Updating.');
+    });
+});
+
+/**
+ * Build the project.
+ */
+gulp.task("build", ['compile', 'resources', 'libs'], () => {
+    console.log("Building the project ...");
+});
+
+

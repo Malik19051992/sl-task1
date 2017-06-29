@@ -18,7 +18,7 @@ export class UserComponent implements OnInit {
     isHideAddress: boolean = true;
     isHideCompany: boolean = true;
 
-    constructor(private provideDataService: ProvideDataService, private route: ActivatedRoute, private router: Router) {
+    constructor(private provideDataService: ProvideDataService, private activatedRoute: ActivatedRoute, private router: Router) {
     }
 
     onClickClose() {
@@ -26,7 +26,7 @@ export class UserComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.sub = this.route.params.subscribe(params => {
+        this.sub = this.activatedRoute.params.subscribe(params => {
             this.provideDataService.getUser(+params['id']).subscribe((data) => this.user = data);
         });
     }

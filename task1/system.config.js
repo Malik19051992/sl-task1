@@ -2,7 +2,7 @@
     System.config({
         paths: {
             // псевдоним для пути к модулям
-            'npm:': 'node_modules/'
+			 'npm:': 'node_modules/'
         },
         // указываем загрузчику System, где искать модули
         map: {

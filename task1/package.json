@@ -4,15 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-	"lite": "lite-server",
+    "test": "tsc && concurrently \"tsc -w\" \"karma start karma.config.js\"",
+    "lite": "lite-server",
+    "test-once": "tsc && karma start karma.config.js --single-run",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
-    "go": "concurrent \"npm run tsc:w\" \"npm run lite\" "
+    "go": "concurrent \"npm run tsc:w\" \"npm run lite\" ",
+    "clean": "gulp clean",
+    "compile": "gulp compile",
+    "build": "gulp build"
   },
   "author": "malik",
   "license": "ISC",
-  
   "dependencies": {
     "@angular/common": "~2.1.1",
     "@angular/compiler": "~2.1.1",
@@ -22,16 +25,28 @@
     "@angular/platform-browser": "~2.1.1",
     "@angular/platform-browser-dynamic": "~2.1.1",
     "@angular/router": "~3.1.1",
-	
     "angular-in-memory-web-api": "~0.1.13",
-	"systemjs": "0.19.39",
+    "systemjs": "0.19.39",
     "core-js": "^2.4.1",
-    "rxjs": "5.0.0-beta.12",   
+    "rxjs": "5.0.0-beta.12",
     "zone.js": "^0.6.25"
   },
   "devDependencies": {
+    "@types/jasmine": "^2.5.53",
     "@types/node": "^6.0.45",
     "concurrently": "^3.0.0",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-typescript": "^3.1.7",
+    "jasmine": "^2.6.0",
+    "jasmine-core": "^2.6.4",
+    "karma": "^1.7.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-cli": "^1.0.1",
+    "karma-htmlfile-reporter": "^0.3.5",
+    "karma-jasmine": "^1.1.0",
+    "karma-jasmine-html-reporter": "^0.2.2",
     "lite-server": "^2.2.2",
     "typescript": "^2.0.3"
   }
