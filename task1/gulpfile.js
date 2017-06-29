@@ -2,70 +2,51 @@
 
 const gulp = require("gulp");
 const del = require("del");
-const tsc = require("gulp-typescript");
-const sourcemaps = require('gulp-sourcemaps');
-const tsProject = tsc.createProject("tsconfig.json");
+const typeScript = require('gulp-typescript');
+var css = require('gulp-css');
+var html = require('gulp-html');
+const tscConfig = require('./tsconfig.json');
 
-/**
- * Remove build directory.
- */
-gulp.task('clean', (cb) => {
-    return del(["dest"], cb);
+//const sourcemaps = require('gulp-sourcemaps');
+
+
+gulp.task('clean', () => {
+    return del("dest/**/*");
 });
 
-/**
- * Compile TypeScript sources and create sourcemaps in build directory.
- */
-gulp.task("compile", () => {
-    let tsResult = gulp.src(["app/**/*.ts","!**/*.spec.ts"])
-        .pipe(sourcemaps.init())
-        .pipe(tsc(tsProject));
-    return tsResult.js
-        .pipe(sourcemaps.write(".", {sourceRoot: '/app'}))
-        .pipe(gulp.dest("dest"));
+// TypeScript compile
+gulp.task('compile', ['clean'], function () {
+    return gulp
+        .src(['app/**/*.ts', "!app/**/*.spec.ts"])
+        .pipe(typeScript(tscConfig.compilerOptions))
+        .pipe(gulp.dest('dest/app'));
 });
 
-/**
- * Copy all resources that are not TypeScript files into build directory.
- */
-gulp.task("resources", () => {
-    return gulp.src(["**/*.css", "**/*.html"])
-        .pipe(gulp.dest("dest"));
+gulp.task('css', function(){
+    return gulp.src(["**/*.css","!node_modules/**/*","!dest/**/*"])
+        //.pipe(cssMin())
+        .pipe(gulp.dest('dest/'));
 });
 
-/**
- * Copy all required libraries into build directory.
- */
+gulp.task('html', function() {
+    return gulp.src(["**/*.html","!node_modules/**/*","!dest/**/*"])
+        //.pipe(validator())
+        .pipe(gulp.dest('dest/'));
+});
+
 gulp.task("libs", () => {
     return gulp.src([
-        'core-js/client/shim.min.js',
+        'es6-shim/es6-shim.min.js',
         'systemjs/dist/system-polyfills.js',
+        'angular2/bundles/angular2-polyfills.js',
         'systemjs/dist/system.src.js',
-        'reflect-metadata/Reflect.js',
-        'rxjs/**',
-        'zone.js/dist/**',
-        '@angular/**'
-    ], {cwd: "node_modules/**"}) /* Glob required here. */
+        'rxjs/bundles/Rx.js',
+        'angular2/bundles/angular2.dev.js',
+        'angular2/bundles/router.dev.js'
+    ], {cwd: "node_modules/**"})
         .pipe(gulp.dest("dest/lib"));
 });
 
-/**
- * Watch for changes in TypeScript, HTML and CSS files.
- */
-gulp.task('watch', function () {
-    gulp.watch(["src/**/*.ts"], ['compile']).on('change', function (e) {
-        console.log('TypeScript file ' + e.path + ' has been changed. Compiling.');
-    });
-    gulp.watch(["src/**/*.html", "src/**/*.css"], ['resources']).on('change', function (e) {
-        console.log('Resource file ' + e.path + ' has been changed. Updating.');
-    });
-});
 
-/**
- * Build the project.
- */
-gulp.task("build", ['compile', 'resources', 'libs'], () => {
-    console.log("Building the project ...");
-});
-
-
+gulp.task('build', ['compile', 'css','html', 'libs']);
+gulp.task('default', ['build']);
