@@ -10,6 +10,6 @@ Creation of templates   |2          |1
 Creation of components  |2          |1
 Creation of services    |2          |1
 Creation of styles      |4          |2
-Creation of tests       |8(becouse  |8
+Creation of tests       |8(becouse  |8(but didn't do)
                         didn't do it
                          before)
