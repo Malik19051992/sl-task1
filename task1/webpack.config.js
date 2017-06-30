@@ -5,9 +5,9 @@ var path = require('path');
 
 module.exports = {
     entry: {
-        'polyfills': './polyfills.ts',
-        'vendor': './vendor.ts',
-        'app': './app/main.ts'
+        'polyfills': './src/polyfills.ts',
+        'vendor': './src/vendor.ts',
+        'app': './src/app/main.ts'
     },
     output: {
         path: path.resolve('dist'),
@@ -27,7 +27,7 @@ module.exports = {
                 test: /\.ts$/,
                 loaders: [{
                     loader: 'awesome-typescript-loader',
-                    options: { configFileName: path.resolve('tsconfig.json') }
+                    options: { configFileName: path.resolve('src/tsconfig.json') }
                 } , 'angular2-template-loader']
             },
             {
@@ -40,12 +40,12 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                exclude: path.resolve( 'app'),
+                exclude: path.resolve( 'src'),
                 loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader?sourceMap' })
             },
             {
                 test: /\.css$/,
-                include: path.resolve( 'app'),
+                include: path.resolve( 'src'),
                 loader: 'raw-loader'
             }]
     },
@@ -53,16 +53,16 @@ module.exports = {
     plugins: [
         new webpack.ContextReplacementPlugin(
             /angular(\|\/)core(\|\/)(esm(\|\/)app|app)(\|\/)linker/,
-            path.resolve('./app'), // каталог с исходными файлами
-            {} // карта маршрутов
+            path.resolve('./app'),
+            {}
         ),
 
         new webpack.optimize.CommonsChunkPlugin({
-            name: ['app', 'vendor', 'polyfills']
+            name: ['src', 'vendor', 'polyfills']
         }),
 
         new HtmlWebpackPlugin({
-            template: './index.html'
+            template: './src/index.html'
         }),
         new ExtractTextPlugin('[name].[hash].css'),
         new webpack.NoEmitOnErrorsPlugin(),

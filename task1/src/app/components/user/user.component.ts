@@ -6,8 +6,8 @@ import {User} from '../../models/user.model'
 
 @Component({
     selector: 'user',
-    templateUrl: './user.template.html',
-    styleUrls: ['./user.styles.css'],
+    templateUrl: 'user.template.html',
+    styleUrls: ['user.styles.css'],
     providers: [ProvideDataService]
 
 })
