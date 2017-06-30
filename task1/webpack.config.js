@@ -17,7 +17,10 @@ module.exports = {
     resolve: {
         extensions: ['.ts', '.js']
     },
-
+    devServer: {
+        port: 3000,
+        historyApiFallback: true
+    },
     module: {
         rules: [
             {
@@ -75,5 +78,6 @@ module.exports = {
                 minimize: false
             }
         })
-    ]
+    ],
+    watch:true
 };
