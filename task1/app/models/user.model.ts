@@ -8,7 +8,7 @@ export class User {
     website: string;
     company: Company;
 
-    constructor(user) {
+    constructor(user: any) {
         this.id = user.id;
         this.name = user.name;
         this.userName = user.username;
@@ -27,7 +27,7 @@ class Address {
     zipCode: string;
     geo: Geolocation;
 
-    constructor(address) {
+    constructor(address:any) {
         this.street = address.street;
         this.suite = address.suite;
         this.city = address.city;
@@ -51,6 +51,7 @@ class Company {
                 public catchPhrase: string,
                 public bs: string,) {
     }
+
     toString() {
         return this.name;
     }

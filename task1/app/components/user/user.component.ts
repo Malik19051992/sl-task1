@@ -6,8 +6,8 @@ import {User} from '../../models/user.model'
 
 @Component({
     selector: 'user',
-    templateUrl: './app/components/user/user.template.html',
-    styleUrls: ['./app/components/user/user.styles.css'],
+    templateUrl: './user.template.html',
+    styleUrls: ['./user.styles.css'],
     providers: [ProvideDataService]
 
 })
@@ -27,7 +27,7 @@ export class UserComponent implements OnInit {
 
     ngOnInit() {
         this.sub = this.activatedRoute.params.subscribe(params => {
-            this.provideDataService.getUser(+params['id']).subscribe((data) => this.user = data);
+            this.provideDataService.getUser(+params['id']).subscribe((data:User) => this.user = data);
         });
     }
 

@@ -28,12 +28,12 @@ export class ProvideDataService {
         }
     }
 
-    getUser(id) {
+    getUser(id:number) {
         try {
             return this.http.get('http://jsonplaceholder.typicode.com/users')
                 .map((resp: Response) => {
                     try {
-                        return new User(resp.json().filter((x) => x.id === id)[0]);
+                        return new User(resp.json().filter((x:User) => x.id === id)[0]);
                     } catch (e) {
                         console.log('User not found. Give this user))')
                         return new User(resp.json()[0]);
